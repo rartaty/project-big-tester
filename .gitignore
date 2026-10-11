@@ -1,0 +1,12 @@
+# Track only the explicitly reviewed demo files.
+*
+!.gitignore
+!README.md
+!index.html
+!styles.css
+!demo-model.js
+!app.js
+!docs/
+!docs/PUBLIC_SCOPE.md
+!tests/
+!tests/model.test.cjs

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Project Big Tester — Sample Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="demo-model.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">メインへ移動</a>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">B</span> Project Big Tester</a>
+    <span class="badge">SAMPLE DATA</span>
+  </header>
+  <main id="main">
+    <div class="intro">
+      <p class="eyebrow">OVERVIEW</p>
+      <h1>資産データを、ひと目で。</h1>
+      <p class="muted">表示値はすべて架空のサンプルです。</p>
+    </div>
+    <noscript><p class="notice">操作と集計の表示には JavaScript を有効にしてください。</p></noscript>
+    <section class="metrics" aria-label="サンプル全体の集計">
+      <article class="metric"><h2>サンプル合計</h2><p><strong id="total">—</strong> <span>pt</span></p><small>全項目の表示値の合計</small></article>
+      <article class="metric"><h2>項目数</h2><p><strong id="record-count">—</strong> <span>件</span></p><small>架空のデータセット</small></article>
+      <article class="metric"><h2>グループ数</h2><p><strong id="group-count">—</strong> <span>種類</span></p><small>一覧を分類する表示ラベル</small></article>
+    </section>
+    <section class="panel chart-panel" aria-labelledby="chart-title">
+      <div class="panel-heading"><div><p class="eyebrow">SAMPLE SERIES</p><h2 id="chart-title">サンプル値の推移</h2></div><span class="muted small">固定データ · pt</span></div>
+      <svg viewBox="0 0 800 200" role="img" aria-labelledby="series-title series-description">
+        <title id="series-title">架空のサンプル値の推移</title>
+        <desc id="series-description">8点の説明用データ。実際の運用成績ではありません。数値は下の表でも確認できます。</desc>
+        <path class="grid-line" d="M24 30H776 M24 95H776 M24 160H776" />
+        <polyline id="series-line" class="series-line" points="" />
+        <g id="series-points"></g>
+      </svg>
+      <div class="chart-labels" aria-hidden="true"><span>サンプル 1</span><span>サンプル 8</span></div>
+      <details><summary>グラフの数値を確認</summary><div class="table-scroll"><table><caption class="visually-hidden">推移グラフの固定サンプルデータ</caption><thead><tr><th scope="col">サンプル</th><th scope="col" class="numeric">値 (pt)</th></tr></thead><tbody id="series-table"></tbody></table></div></details>
+    </section>
+    <section class="panel" aria-labelledby="list-title">
+      <div class="panel-heading"><div><p class="eyebrow">DATA EXPLORER</p><h2 id="list-title">サンプル一覧</h2></div><p id="result-count" role="status" aria-live="polite" class="muted small"></p></div>
+      <div class="filters">
+        <label class="search-label">名前で検索<input id="search" type="search" placeholder="例：Asset A" autocomplete="off" maxlength="80"></label>
+        <label>グループ<select id="group"><option value="all">すべて</option><option value="A">グループ A</option><option value="B">グループ B</option></select></label>
+        <label>並び順<select id="sort"><option value="name">名前順</option><option value="value-desc">値が大きい順</option><option value="value-asc">値が小さい順</option></select></label>
+        <button id="reset" type="button">条件をリセット</button>
+      </div>
+      <div class="table-scroll"><table><caption class="visually-hidden">検索・絞り込み結果</caption><thead><tr><th scope="col">名前</th><th scope="col">グループ</th><th scope="col" class="numeric">表示値 (pt)</th></tr></thead><tbody id="records"></tbody></table></div>
+      <p id="empty" class="empty-state" hidden>該当する項目がありません。検索条件を変更してください。</p>
+    </section>
+    <footer>Project Big Tester <span aria-hidden="true">/</span> 独立した画面デモ</footer>
+  </main>
+</body>
+</html>
