@@ -1,12 +1,20 @@
-# Track only the explicitly reviewed demo files.
+# Only reviewed source excerpts and documentation are eligible for tracking.
 *
 !.gitignore
 !README.md
-!index.html
-!styles.css
-!demo-model.js
-!app.js
+!backend/
+!backend/core/
+!backend/core/app_config.py
+!frontend/
+!frontend/components/
+!frontend/components/PositionsTable.tsx
+!frontend/components/PositionsTable.module.css
+!frontend/components/types.ts
+!frontend/styles/
+!frontend/styles/theme.css
 !docs/
+!docs/SYSTEM_OVERVIEW.md
+!docs/CODE_SCOPE.md
 !docs/PUBLIC_SCOPE.md
 !tests/
-!tests/model.test.cjs
+!tests/test_app_config.py
